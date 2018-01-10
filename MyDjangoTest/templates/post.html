@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django</title>
+    <!--<form action="search_post" method="post">-->
+    <form action="/search_post" method="post">
+        {%  csrf_token %}
+        <h1>This is a Post Test</h1>
+        姓名：<input type="text" name="name_html" value="{{ post_name }}" /><br/>
+        <hr/>
+        年龄：<input type="text" name="age_html" value="{{ post_age }}"/><br/>
+        <hr/>
+        地址：<input type="text" name="address_html" value="{{ post_address }}"/><br/>
+        <hr/>
+        日期：<input type="date" name="date_html" value="{{ post_date }}"/><br/>
+        <hr/>
+        <input type="submit" value="添加到数据库">
+        <!--<button type="button" onclick="/search_post">提交 </button>-->
+        {# <input type="button" onclick="/search_post" value="按键提交">#}
+    </form>
+    <hr/>
+    你提交的内容为：<p>{{ post_name }} ; {{ post_age }} : {{ post_address }}: {{ post_date }} </p>
+    {% if post_name %}
+        <p>输入内容有效，可进行下一步处理</p>
+
+    {% endif %}
+    {% include "static_display2.html" %}
+
+</head>
+<body>
+
+</body>
+</html>
